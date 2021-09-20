@@ -274,10 +274,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\StudentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+=======
+>>>>>>> ffdc89190b2fad75ade8b04e2d923243de838b02
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\SubjectsOfClassesController.cs" />
     <Compile Include="DB\Attendance.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -565,7 +569,15 @@
     <Content Include="Views\Students\Details.cshtml" />
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Students\ImportExcel.cshtml" />
+=======
+    <Content Include="Views\SubjectsOfClasses\Create.cshtml" />
+    <Content Include="Views\SubjectsOfClasses\Delete.cshtml" />
+    <Content Include="Views\SubjectsOfClasses\Details.cshtml" />
+    <Content Include="Views\SubjectsOfClasses\Edit.cshtml" />
+    <Content Include="Views\SubjectsOfClasses\Index.cshtml" />
+>>>>>>> ffdc89190b2fad75ade8b04e2d923243de838b02
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
