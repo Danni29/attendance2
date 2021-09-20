@@ -18,6 +18,8 @@ namespace Assignment.DB
         public AttendanceDBEntities()
             : base("name=AttendanceDBEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
