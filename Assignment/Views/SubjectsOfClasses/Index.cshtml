@@ -8,8 +8,15 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-info" style="margin-bottom: 10px">     @Html.ActionLink("Create New", "Create")</button>
+
 </p>
+<div>
+    <button class="btn btn-info" style="margin-bottom: 10px"> @Html.ActionLink("Export To Excel", "ExportToExcel")</button>
+</div>
+<div>
+    <button class="btn btn-info" style="margin-bottom: 10px"> @Html.ActionLink("Import From Excel", "ImportExcel")</button>
+</div>
 <table class="table">
     <tr>
         <th>
