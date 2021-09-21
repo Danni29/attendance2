@@ -9,9 +9,11 @@
 
 namespace Assignment.DB
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
     public partial class Student
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +22,7 @@ namespace Assignment.DB
             this.Attendances = new HashSet<Attendance>();
             this.ExamDetails = new HashSet<ExamDetail>();
         }
-    
+           
         public string StID { get; set; }
         public string StName { get; set; }
         public string Password { get; set; }
@@ -31,6 +33,8 @@ namespace Assignment.DB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendance> Attendances { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember]
         public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ExamDetail> ExamDetails { get; set; }
