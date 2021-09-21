@@ -9,6 +9,7 @@ using OfficeOpenXml;
 using System.Web.Mvc;
 using Assignment.DB;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace Assignment.Controllers
 {
@@ -127,12 +128,18 @@ namespace Assignment.Controllers
         }
 
         [HttpPost]
-        public ActionResult ImportToExcel(HttpPostedFileBase excelFile) { 
-                
-            
-                Excel.Application application = new Excel.Application();
-                Excel.Workbook workbook = application.Workbooks.Open("D:/Excel/"+excelFile.FileName);
-                Excel.Worksheet worksheet = workbook.ActiveSheet;   
+        public ActionResult ImportToExcel(HttpPostedFileBase excelFile) {
+
+            string fileName = Path.GetFileName(excelFile.FileName);
+            string path = Path.Combine(Server.MapPath("~/Content"), fileName);
+
+            if (System.IO.File.Exists(path))
+                System.IO.File.Delete(path);
+
+            excelFile.SaveAs(path);
+            Excel.Application application = new Excel.Application();
+            Excel.Workbook workbook = application.Workbooks.Open(path);
+            Excel.Worksheet worksheet = workbook.ActiveSheet;   
                 Excel.Range range = worksheet.UsedRange;
                
                 for(int row = 2; row <= range.Rows.Count; row++)

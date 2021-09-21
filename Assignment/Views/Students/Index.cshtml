@@ -59,7 +59,10 @@
                 @Html.DisplayFor(modelItem => item.Class.ClassName)
             </td>
             <td>
-                <button type="button" data-student-id="@item.StID" class="btn btn-danger js-delete">Delete</button>
+                <button type="button" id="btn-delete" data-student-id="@item.StID" class="btn btn-danger js-delete">Delete</button>
+            </td>
+            <td>
+                <button type="button" id="btn-delete" data-student-id="@item.StID" class="btn btn-danger js-delete">Delete</button>
             </td>
         </tr>
             }
@@ -71,12 +74,10 @@
     <script>
         $(document).ready(function () {
             $("#students").DataTable({
-                "bLengthChange": false,
-                "bFilter": true,
-                "bInfo": false,
-                "bAutoWidth": false
+                "order": [[3, "desc"]]
             });
-            $("#students .js-delete").on("click", function (e) {
+            $(document).on("click", ".js-delete", function (e) {//change this line on event bind
+                debugger;
                 e.preventDefault();
                 var button = $(this);
                 if (confirm("Are you sure want to delete this Student")) {
