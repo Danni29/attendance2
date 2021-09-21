@@ -87,14 +87,17 @@
                 e.preventDefault();
                 var id = $("#id").val();
                 var formData = $("#formSubmit").serialize();
-                $.ajax({
-                    type: "PUT",
-                    url: "/api/Students/" + id,
-                    data: formData,
-                    success: function () {
-
-                    }
-                })
+                if (confirm("Are you sure want to update details this Student")) {
+                    $.ajax({
+                        type: "PUT",
+                        url: "/api/Students/" + id,
+                        data: formData,
+                        success: function () {
+                            alert("Update Details Sucess");
+                            window.location.href = '@Url.Action("Index", "Students")';
+                        }
+                    })
+                }
             });
         });
     </script>
