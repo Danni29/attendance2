@@ -334,7 +334,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+
+    <Compile Include="ModelView\SubjectsOfClassModelView.cs" />
+
     <Compile Include="Models\StudentViewModel.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

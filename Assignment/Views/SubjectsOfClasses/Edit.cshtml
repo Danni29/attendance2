@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>SubjectsOfClass</h4>
         <hr />
@@ -45,7 +45,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "datepicker" } })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -94,6 +94,27 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "yy/mm/dd",
+                changeMonth: true,
+                changeYear: true,
+                //yearRange : "-10:+10"
+                minDate: new Date(2000, 0, 1),
+                maxDate: new Date(2100, 0, 1),
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar'></i>"
+            });
+        });
+
+
+    </script>
+    }
